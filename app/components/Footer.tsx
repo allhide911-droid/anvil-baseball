@@ -17,9 +17,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-500 text-sm leading-relaxed">
-              一流の技術を、すべての選手に。
+              10年後、あの教室に入れてよかった。
               <br />
-              科学とプロの知見で野球の未来を切り拓く
+              野球を通じて、子どもの一生を豊かにする
               本格的なベースボールアカデミー。
             </p>
           </div>

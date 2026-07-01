@@ -33,15 +33,15 @@ export default function Hero() {
 
           {/* Main heading */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-white mb-6">
-            一流の技術を、
+            10年後、あの教室に
             <br />
-            <span className="text-[#dc2626]">すべての選手に。</span>
+            <span className="text-[#dc2626]">入れてよかった。</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
-            ANVIL BASEBALL ACADEMYは、科学的アプローチとプロの知見で
-            あなたの野球技術を根本から鍛え上げる本格的なベースボールスクールです。
+            ANVIL BASEBALL ACADEMYは、野球の技術だけでなく、
+            10年後に誇れる人間力を育てる本格的なベースボールスクールです。
           </p>
 
           {/* CTA Buttons */}
