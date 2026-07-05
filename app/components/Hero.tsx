@@ -1,6 +1,20 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-[#0a0a0a] overflow-hidden">
+      {/* Background photo */}
+      <Image
+        src="/images/hero.jpg"
+        fill
+        priority
+        alt=""
+        className="object-cover"
+        sizes="100vw"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/75" />
+
       {/* Background grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"

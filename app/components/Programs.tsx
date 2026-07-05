@@ -1,6 +1,5 @@
 const programs = [
   {
-    icon: "🏏",
     title: "バッティング強化",
     tag: "Hitting",
     description:
@@ -9,7 +8,6 @@ const programs = [
     price: "月額 ¥18,000〜",
   },
   {
-    icon: "⚾",
     title: "ピッチング強化",
     tag: "Pitching",
     description:
@@ -19,7 +17,6 @@ const programs = [
     featured: true,
   },
   {
-    icon: "🥊",
     title: "守備・走塁",
     tag: "Fielding",
     description:
@@ -70,8 +67,7 @@ export default function Programs() {
               )}
 
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">{program.icon}</span>
+                <div className="flex items-center justify-end mb-4">
                   <span className="text-[#dc2626]/60 text-xs font-bold tracking-[0.2em] uppercase">
                     {program.tag}
                   </span>

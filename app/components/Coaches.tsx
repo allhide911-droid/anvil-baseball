@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const coaches = [
   {
     name: "田中 雄一",
@@ -46,6 +48,25 @@ export default function Coaches() {
           <p className="text-gray-400 text-lg max-w-xl">
             現役経験を持つコーチが一人ひとりに向き合い、確実な技術向上をサポートします。
           </p>
+        </div>
+
+        {/* Coach image banner */}
+        <div className="relative w-full aspect-[3/2] rounded-xl overflow-hidden mb-12 bg-[#0a0a0a]">
+          <Image
+            src="/images/coach-smile.jpg"
+            fill
+            alt="子どもに語りかけるANVILコーチ"
+            className="object-contain"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-12">
+            <p className="text-white font-black text-xl sm:text-2xl max-w-lg leading-snug">
+              「名前を覚えること、目を見て話すこと。」
+              <br />
+              <span className="text-[#dc2626]">「それが、指導のすべての始まりです。」</span>
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
