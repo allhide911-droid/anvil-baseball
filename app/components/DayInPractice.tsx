@@ -68,7 +68,7 @@ export default function DayInPractice() {
         </div>
 
         {/* Timeline + side image */}
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-start">
+        <div className="grid lg:grid-cols-[3fr_5fr] gap-12 items-start">
           {/* Timeline */}
           <div className="flex flex-col">
             {timeline.map((item) => (
@@ -105,7 +105,7 @@ export default function DayInPractice() {
               fill
               alt="コーチによる個別指導"
               className="object-cover"
-              sizes="340px"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           </div>
