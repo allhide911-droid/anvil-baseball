@@ -41,7 +41,8 @@ export default function PhotoGallery() {
                 fill
                 alt={photo.caption}
                 className="object-cover"
-                sizes="(max-width: 1280px) 25vw, 20vw"
+                sizes="(max-width: 1280px) 50vw, 40vw"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300" />
               <p className="absolute bottom-4 left-0 right-0 text-center text-white text-sm font-bold opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300">
@@ -64,6 +65,7 @@ export default function PhotoGallery() {
                 alt={photo.caption}
                 className="object-cover"
                 sizes="80vw"
+                quality={85}
               />
             </div>
           ))}
