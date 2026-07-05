@@ -1,14 +1,11 @@
 import Image from "next/image";
+import { getGalleryItems } from "@/app/lib/wordpress";
 
-const photos = [
-  { src: "/images/gallery.jpg",        caption: "練習の軌跡" },
-  { src: "/images/practice.jpg",       caption: "練習風景" },
-  { src: "/images/coaching-scene.jpg", caption: "コーチ指導" },
-  { src: "/images/joy.jpg",            caption: "チームの笑顔" },
-  { src: "/images/team.jpg",           caption: "仲間との一コマ" },
-];
+export default async function PhotoGallery() {
+  const galleryItems = await getGalleryItems();
+  const items = galleryItems.filter((item) => item.imageUrl !== null);
+  if (items.length === 0) return null;
 
-export default function PhotoGallery() {
   return (
     <section id="gallery" className="bg-[#0a0a0a] py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,22 +28,22 @@ export default function PhotoGallery() {
 
         {/* Desktop: hover accordion */}
         <div className="hidden lg:flex h-[500px] gap-2 rounded-xl overflow-hidden">
-          {photos.map((photo) => (
+          {items.map((item) => (
             <div
-              key={photo.src}
+              key={item.id}
               className="relative flex-1 hover:[flex:3] transition-all duration-500 ease-in-out overflow-hidden group/photo"
             >
               <Image
-                src={photo.src}
+                src={item.imageUrl!}
                 fill
-                alt={photo.caption}
+                alt={item.imageAlt || item.title}
                 className="object-cover"
                 sizes="(max-width: 1280px) 50vw, 40vw"
                 quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300" />
               <p className="absolute bottom-4 left-0 right-0 text-center text-white text-sm font-bold opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300">
-                {photo.caption}
+                {item.title}
               </p>
             </div>
           ))}
@@ -54,15 +51,15 @@ export default function PhotoGallery() {
 
         {/* Mobile: horizontal scroll */}
         <div className="flex lg:hidden gap-3 overflow-x-auto snap-x snap-mandatory pb-2">
-          {photos.map((photo) => (
+          {items.map((item) => (
             <div
-              key={photo.src}
+              key={item.id}
               className="relative w-[80vw] flex-shrink-0 aspect-[3/4] rounded-xl overflow-hidden snap-start"
             >
               <Image
-                src={photo.src}
+                src={item.imageUrl!}
                 fill
-                alt={photo.caption}
+                alt={item.imageAlt || item.title}
                 className="object-cover"
                 sizes="80vw"
                 quality={85}
