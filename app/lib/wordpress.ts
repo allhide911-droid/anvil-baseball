@@ -32,9 +32,11 @@ export interface Coach {
   id: number;
   slug: string;
   name: string;
+  nameEn: string;
   bio: string;
   position: string;
   message: string;
+  specialties: string[];
   imageUrl: string | null;
   imageAlt: string;
 }
@@ -95,6 +97,11 @@ function asString(value: unknown): string {
   return typeof value === "string" ? value : "";
 }
 
+function splitSpecialties(raw: string): string[] {
+  if (!raw.trim()) return [];
+  return raw.split(",").map((s) => s.trim()).filter(Boolean);
+}
+
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
@@ -106,9 +113,11 @@ export async function getCoaches(): Promise<Coach[]> {
     id: post.id,
     slug: post.slug,
     name: post.title.rendered,
+    nameEn: asString(post.acf.name_en),
     bio: post.content.rendered,
     position: asString(post.acf.position),
     message: asString(post.acf.message),
+    specialties: splitSpecialties(asString(post.acf.specialties)),
     imageUrl: extractImageUrl(post),
     imageAlt: extractImageAlt(post),
   }));
