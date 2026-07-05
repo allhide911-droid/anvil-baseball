@@ -7,7 +7,6 @@ const alumni = [
     quote:
       "ANVILで「諦めない」を教わった。あの2年間が今の自分をつくった。",
     note: "中学進学後、野球部のキャプテンに。",
-    initial: "K",
   },
   {
     id: "T.M",
@@ -15,7 +14,6 @@ const alumni = [
     quote:
       "始めた頃はバットも振れなかった僕が、MVPをもらえるとは思っていなかった。",
     note: "未経験入会から2年後、地区大会でMVPを獲得。",
-    initial: "T",
   },
   {
     id: "S.H",
@@ -23,7 +21,6 @@ const alumni = [
     quote:
       "今は野球を続けていないけど、コーチに言われた「負けた日の立ち方」が、今の自分の仕事に活きている。",
     note: "高校卒業後、設計士として活躍中。",
-    initial: "S",
   },
 ];
 
@@ -62,16 +59,9 @@ export default function Alumni() {
               key={a.id}
               className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-7 flex flex-col gap-4 hover:border-[#dc2626]/30 transition-colors duration-200"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#2a2a2a] border border-[#dc2626]/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#dc2626] font-black text-base">
-                    {a.initial}
-                  </span>
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm">{a.id}</p>
-                  <p className="text-gray-500 text-xs">{a.period}</p>
-                </div>
+              <div>
+                <p className="text-white font-bold text-sm">{a.id}</p>
+                <p className="text-gray-500 text-xs">{a.period}</p>
               </div>
 
               <p className="text-[#dc2626] text-xs font-bold leading-relaxed bg-[#dc2626]/5 border border-[#dc2626]/15 rounded-lg px-4 py-3">

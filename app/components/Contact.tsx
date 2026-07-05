@@ -46,31 +46,23 @@ export default function Contact() {
             <div className="flex flex-col gap-5">
               {[
                 {
-                  icon: "📍",
                   label: "所在地",
                   value: "東京都渋谷区〇〇1-2-3 ANVILベースボールパーク",
                 },
                 {
-                  icon: "📞",
                   label: "電話番号",
                   value: "03-XXXX-XXXX（平日 10:00〜19:00）",
                 },
                 {
-                  icon: "📧",
                   label: "メール",
                   value: "info@anvil-baseball.jp",
                 },
               ].map((item) => (
-                <div key={item.label} className="flex gap-4 items-start">
-                  <span className="text-xl flex-shrink-0 mt-0.5">
-                    {item.icon}
-                  </span>
-                  <div>
-                    <div className="text-[#dc2626] text-xs font-bold tracking-wide mb-0.5">
-                      {item.label}
-                    </div>
-                    <div className="text-gray-300 text-sm">{item.value}</div>
+                <div key={item.label}>
+                  <div className="text-[#dc2626] text-xs font-bold tracking-wide mb-0.5">
+                    {item.label}
                   </div>
+                  <div className="text-gray-300 text-sm">{item.value}</div>
                 </div>
               ))}
             </div>

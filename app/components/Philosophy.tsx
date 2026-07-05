@@ -1,16 +1,13 @@
 const pillars = [
   {
-    number: "01",
     title: "技術より先に、人をつくる",
     body: "打てる、投げられる——それだけでは足りません。ANVILでは、挨拶・時間を守る・仲間を思いやるという当たり前のことを、野球の練習を通じて徹底して身につけます。グラウンドで身につけた習慣は、教室でも、社会に出てからも、ずっとその子の財産になります。",
   },
   {
-    number: "02",
     title: "「負けた日」こそ、一番大事にする",
     body: "思い通りにいかないとき、悔しくて泣きたいとき——そういう瞬間を、私たちは大切にしています。失敗から立ち直る力、諦めずに考え続ける力。それは野球が教えてくれる最高の授業です。うまくいかない経験を積み重ねてこそ、10年後に折れない人間が育ちます。",
   },
   {
-    number: "03",
     title: "親御さんも、一緒に育てていきます",
     body: "子どもの成長を一番近くで見守るのは、保護者の皆さんです。ANVILでは練習後に必ずコーチから一言フィードバックをお伝えし、ご家庭でも成長を感じていただける工夫をしています。「うちの子、変わってきた」と感じていただく瞬間が、私たちの一番の喜びです。",
   },
@@ -74,12 +71,9 @@ export default function Philosophy() {
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar) => (
             <div
-              key={pillar.number}
+              key={pillar.title}
               className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-7 hover:border-[#dc2626]/30 transition-colors duration-200"
             >
-              <div className="text-[#dc2626]/25 font-black text-4xl leading-none mb-5 tabular-nums">
-                {pillar.number}
-              </div>
               <h3 className="text-white font-black text-base mb-3 leading-snug">
                 {pillar.title}
               </h3>

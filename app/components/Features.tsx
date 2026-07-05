@@ -1,24 +1,20 @@
 const features = [
   {
-    number: "01",
     title: "現役プロが直接指導",
     description:
       "NPBやアマチュア球界で活躍した経験を持つコーチ陣が直接指導。実戦で培われたリアルな知識と技術を伝えます。",
   },
   {
-    number: "02",
     title: "データ分析による技術向上",
     description:
       "高速カメラと動作解析ソフトウェアを活用し、スイング・投球フォームを数値化。客観的なデータに基づいた改善プランを提供します。",
   },
   {
-    number: "03",
     title: "少人数制の徹底指導",
     description:
       "1クラス最大6名の少人数制を採用。一人ひとりの課題を把握し、個別最適化されたフィードバックを毎回提供します。",
   },
   {
-    number: "04",
     title: "充実した練習環境",
     description:
       "屋内ブルペン・ピッチングマシン・映像分析システムを完備。天候に左右されず、質の高いトレーニングを継続できます。",
@@ -76,20 +72,15 @@ export default function Features() {
           <div className="flex flex-col gap-6">
             {features.map((f) => (
               <div
-                key={f.number}
-                className="flex gap-5 p-6 rounded-xl bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#dc2626]/30 transition-colors duration-200 group"
+                key={f.title}
+                className="p-6 rounded-xl bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#dc2626]/30 transition-colors duration-200 group"
               >
-                <div className="text-[#dc2626]/30 font-black text-2xl leading-none group-hover:text-[#dc2626]/60 transition-colors w-10 flex-shrink-0">
-                  {f.number}
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-base mb-2">
-                    {f.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {f.description}
-                  </p>
-                </div>
+                <h3 className="text-white font-bold text-base mb-2">
+                  {f.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {f.description}
+                </p>
               </div>
             ))}
           </div>

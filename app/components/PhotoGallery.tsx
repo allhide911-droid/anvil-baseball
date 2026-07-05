@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-const subImages = [
-  { src: "/images/practice.jpg", alt: "練習風景" },
-  { src: "/images/coaching-scene.jpg", alt: "コーチ指導シーン" },
-  { src: "/images/joy.jpg", alt: "子どもたちの笑顔" },
-  { src: "/images/team.jpg", alt: "チーム集合写真" },
+const photos = [
+  { src: "/images/gallery.jpg",        caption: "練習の軌跡" },
+  { src: "/images/practice.jpg",       caption: "練習風景" },
+  { src: "/images/coaching-scene.jpg", caption: "コーチ指導" },
+  { src: "/images/joy.jpg",            caption: "チームの笑顔" },
+  { src: "/images/team.jpg",           caption: "仲間との一コマ" },
 ];
 
 export default function PhotoGallery() {
@@ -28,76 +29,44 @@ export default function PhotoGallery() {
           </p>
         </div>
 
-        {/* Asymmetric grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4">
-          {/* Large main image */}
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden group">
-            <Image
-              src="/images/gallery.jpg"
-              fill
-              alt="ANVILギャラリーメイン"
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="(max-width: 1024px) 100vw, 66vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-
-          {/* 2×2 sub images */}
-          <div className="relative aspect-[4/3] hidden lg:block">
-            <div className="absolute inset-0 grid grid-cols-2 gap-4">
-              {subImages.map((img) => (
-                <div
-                  key={img.src}
-                  className="relative rounded-xl overflow-hidden group"
-                >
-                  <Image
-                    src={img.src}
-                    fill
-                    alt={img.alt}
-                    className="object-cover object-[center_25%] group-hover:scale-110 transition-transform duration-700"
-                    sizes="17vw"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-              ))}
+        {/* Desktop: hover accordion */}
+        <div className="hidden lg:flex h-[500px] gap-2 rounded-xl overflow-hidden">
+          {photos.map((photo) => (
+            <div
+              key={photo.src}
+              className="relative flex-1 hover:[flex:3] transition-all duration-500 ease-in-out overflow-hidden group/photo"
+            >
+              <Image
+                src={photo.src}
+                fill
+                alt={photo.caption}
+                className="object-cover"
+                sizes="(max-width: 1280px) 25vw, 20vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300" />
+              <p className="absolute bottom-4 left-0 right-0 text-center text-white text-sm font-bold opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300">
+                {photo.caption}
+              </p>
             </div>
-          </div>
-
-          {/* Mobile: 2×2 grid (lg以下で表示) */}
-          <div className="grid grid-cols-2 gap-4 lg:hidden">
-            {subImages.map((img) => (
-              <div
-                key={img.src}
-                className="relative aspect-[4/3] rounded-xl overflow-hidden group"
-              >
-                <Image
-                  src={img.src}
-                  fill
-                  alt={img.alt}
-                  className="object-cover object-[center_25%] group-hover:scale-110 transition-transform duration-700"
-                  sizes="50vw"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
 
-        {/* Family watching accent */}
-        <div className="mt-4 relative w-full aspect-[16/9] rounded-xl overflow-hidden group">
-          <Image
-            src="/images/family-watching.jpg"
-            fill
-            alt="練習を見守る保護者"
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-            sizes="(max-width: 1280px) 100vw, 1280px"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <p className="text-white/70 text-sm font-bold tracking-wider">
-              保護者の皆さんも、毎回の練習を見守ることができます
-            </p>
-          </div>
+        {/* Mobile: horizontal scroll */}
+        <div className="flex lg:hidden gap-3 overflow-x-auto snap-x snap-mandatory pb-2">
+          {photos.map((photo) => (
+            <div
+              key={photo.src}
+              className="relative w-[80vw] flex-shrink-0 aspect-[3/4] rounded-xl overflow-hidden snap-start"
+            >
+              <Image
+                src={photo.src}
+                fill
+                alt={photo.caption}
+                className="object-cover"
+                sizes="80vw"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
