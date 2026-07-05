@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         hostname: "tocchan-web.sakura.ne.jp",
       },
     ],
+    qualities: [75, 85],
   },
 };
 
