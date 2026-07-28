@@ -43,7 +43,7 @@ export default function CoachMessage() {
             <div className="mt-8 flex items-center gap-4">
               <div className="h-px flex-1 bg-[#2a2a2a]" />
               <div className="text-right">
-                <p className="text-white font-black text-sm">田中 雄一</p>
+                <p className="text-white font-black text-sm">田端 勇二</p>
                 <p className="text-gray-500 text-xs tracking-wide">
                   ヘッドコーチ / ANVIL BASEBALL ACADEMY 代表
                 </p>
